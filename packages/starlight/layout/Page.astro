@@ -1,6 +1,6 @@
 ---
-import config from 'virtual:starlight/user-config';
 import type { MarkdownHeading } from 'astro';
+import config from 'virtual:starlight/user-config';
 import { getSidebar } from '../utils/navigation';
 import type { Route } from '../utils/routing';
 
@@ -11,6 +11,8 @@ import '../style/shiki.css';
 import '../style/util.css';
 
 // Components — can override built-in CSS, but not user CSS.
+import { ViewTransitions } from 'astro:transitions';
+import Banner from '../components/Banner.astro';
 import ContentPanel from '../components/ContentPanel.astro';
 import FallbackContentNotice from '../components/FallbackContentNotice.astro';
 import Footer from '../components/Footer.astro';
@@ -24,7 +26,6 @@ import SkipLink from '../components/SkipLink.astro';
 import ThemeProvider from '../components/ThemeProvider.astro';
 import PageFrame from '../layout/PageFrame.astro';
 import TwoColumnContent from '../layout/TwoColumnContent.astro';
-import Banner from '../components/Banner.astro';
 
 // Remark component CSS (needs to override `MarkdownContent.astro`)
 import '../style/asides.css';
@@ -84,6 +85,7 @@ const pagefindEnabled =
 				}
 			}
 		</style>
+		<ViewTransitions />
 	</head>
 	<body>
 		<ThemeProvider />

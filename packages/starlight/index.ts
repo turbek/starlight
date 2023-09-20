@@ -4,11 +4,10 @@ import { spawn } from 'node:child_process';
 import { dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { starlightAsides } from './integrations/asides';
-import { starlightSitemap } from './integrations/sitemap';
+import { rehypeRtlCodeSupport } from './integrations/code-rtl-support';
 import { vitePluginStarlightUserConfig } from './integrations/virtual-user-config';
 import { errorMap } from './utils/error-map';
 import { StarlightConfigSchema, type StarlightUserConfig } from './utils/user-config';
-import { rehypeRtlCodeSupport } from './integrations/code-rtl-support';
 
 export default function StarlightIntegration(opts: StarlightUserConfig): AstroIntegration[] {
 	const parsedConfig = StarlightConfigSchema.safeParse(opts, { errorMap });
@@ -78,5 +77,6 @@ export default function StarlightIntegration(opts: StarlightUserConfig): AstroIn
 		},
 	};
 
-	return [starlightSitemap(userConfig), Starlight, mdx()];
+	// return [starlightSitemap(userConfig), Starlight, mdx()];
+	return [Starlight, mdx()];
 }
