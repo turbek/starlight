@@ -23,7 +23,7 @@ import MarkdownContent from '../components/MarkdownContent.astro';
 import RightSidebar from '../components/RightSidebar.astro';
 import Sidebar from '../components/Sidebar.astro';
 import SkipLink from '../components/SkipLink.astro';
-import ThemeProvider from '../components/ThemeProvider.astro';
+// import ThemeProvider from '../components/ThemeProvider.astro';
 import PageFrame from '../layout/PageFrame.astro';
 import TwoColumnContent from '../layout/TwoColumnContent.astro';
 
@@ -56,6 +56,7 @@ const pagefindEnabled =
 	data-has-toc={hasToC}
 	data-has-sidebar={hasSidebar}
 	data-has-hero={hasHero}
+	data-theme="light"
 >
 	<head>
 		<HeadSEO data={entry.data} lang={lang} />
@@ -88,7 +89,7 @@ const pagefindEnabled =
 		<ViewTransitions />
 	</head>
 	<body>
-		<ThemeProvider />
+		<!-- <ThemeProvider /> -->
 		<SkipLink {locale} />
 		<PageFrame {locale} {hasSidebar}>
 			<Header slot="header" {locale} />

@@ -1,9 +1,9 @@
 ---
-import LanguageSelect from './LanguageSelect.astro';
+// import LanguageSelect from './LanguageSelect.astro';
 import Search from './Search.astro';
 import SiteTitle from './SiteTitle.astro';
 import SocialIcons from './SocialIcons.astro';
-import ThemeSelect from './ThemeSelect.astro';
+// import ThemeSelect from './ThemeSelect.astro';
 
 interface Props {
 	locale: string | undefined;
@@ -17,8 +17,8 @@ const { locale } = Astro.props;
 	<Search {locale} />
 	<div class="sl-hidden md:sl-flex right-group">
 		<SocialIcons />
-		<ThemeSelect {locale} />
-		<LanguageSelect {locale} />
+		<!-- <ThemeSelect {locale} /> -->
+		<!-- <LanguageSelect {locale} /> -->
 	</div>
 </div>
 
