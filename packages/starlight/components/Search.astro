@@ -112,21 +112,27 @@ const pagefindTranslations = {
 				translations = JSON.parse(this.dataset.translations || '{}');
 			} catch {}
 
-			window.addEventListener('DOMContentLoaded', () => {
-				if (import.meta.env.DEV) return;
-				const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
-				onIdle(async () => {
-					const { PagefindUI } = await import('@pagefind/default-ui');
-					new PagefindUI({
-						element: '#starlight__search',
-						baseUrl: import.meta.env.BASE_URL,
-						bundlePath: import.meta.env.BASE_URL.replace(/\/$/, '') + '/pagefind/',
-						showImages: false,
-						translations,
-						showSubResults: true,
+			document.addEventListener(
+				'astro:page-load',
+				() => {
+					if (import.meta.env.DEV) return;
+					const pageFind = document.querySelector('.pagefind-ui__search-input');
+					if (pageFind) return;
+					const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
+					onIdle(async () => {
+						const { PagefindUI } = await import('@pagefind/default-ui');
+						new PagefindUI({
+							element: '#starlight__search',
+							baseUrl: import.meta.env.BASE_URL,
+							bundlePath: import.meta.env.BASE_URL.replace(/\/$/, '') + '/pagefind/',
+							showImages: false,
+							translations,
+							showSubResults: true,
+						});
 					});
-				});
-			});
+				},
+				{ once: true }
+			);
 		}
 	}
 	customElements.define('site-search', SiteSearch);
