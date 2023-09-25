@@ -25,10 +25,10 @@ export default function StarlightIntegration(opts: StarlightUserConfig): AstroIn
 		name: '@astrojs/starlight',
 		hooks: {
 			'astro:config:setup': ({ config, injectRoute, updateConfig }) => {
-				injectRoute({
-					pattern: '404',
-					entryPoint: '@astrojs/starlight/404.astro',
-				});
+				// injectRoute({
+				// 	pattern: '404',
+				// 	entryPoint: '@astrojs/starlight/404.astro',
+				// });
 				injectRoute({
 					pattern: '[...slug]',
 					entryPoint: '@astrojs/starlight/index.astro',
