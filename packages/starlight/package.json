@@ -32,7 +32,7 @@
     "./404.astro": "./404.astro"
   },
   "peerDependencies": {
-    "astro": "^3.0.0"
+    "astro": "https://gitpkg.now.sh/turbek/astro/packages/astro?1d3ac42deaed98a22c3edcef44bc228cfd42e810"
   },
   "devDependencies": {
     "@types/node": "^18.16.19",
@@ -56,10 +56,5 @@
     "unist-util-remove": "^3.1.1",
     "unist-util-visit": "^4.1.2",
     "vfile": "^5.3.7"
-  },
-  "pnpm": {
-    "overrides": {
-      "astro": "^3.1.1"
-    }
   }
 }
